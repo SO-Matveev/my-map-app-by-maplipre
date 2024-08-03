@@ -1,5 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, Renderer2, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from "@angular/core";
 import { FullscreenControl, Map, NavigationControl, ScaleControl } from 'maplibre-gl';
+// @ts-ignore
+import MeasureControl from 'maplibre-gl-measures'
 
 @Component({
   selector: "app-map-layout",
@@ -13,7 +15,6 @@ export class MapLayoutComponent implements AfterViewInit, OnDestroy {
   @ViewChild('map', { static: false }) mapContainer!: ElementRef<HTMLElement>;
 
   constructor(
-    public renderer: Renderer2
   ) {}
 
   ngAfterViewInit(): void {
@@ -46,6 +47,7 @@ export class MapLayoutComponent implements AfterViewInit, OnDestroy {
     this.map.addControl(new NavigationControl(), "top-left")
     this.map.addControl(new FullscreenControl(), "top-left");
     this.map.addControl(new ScaleControl(), "bottom-left")
+    this.map.addControl(new MeasureControl(), 'top-left')
   }
 
   ngOnDestroy() {
