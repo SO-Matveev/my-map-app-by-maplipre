@@ -31,7 +31,8 @@ export class MapLayoutComponent implements AfterViewInit, OnDestroy {
             maxzoom: 19
           }
         },
-        glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
+        // glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
+        glyphs: "glyphs/{fontstack}/{range}.pbf",
         layers: [
           {
             id: "osm",
