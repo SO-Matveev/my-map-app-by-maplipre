@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from "@angular/core";
 import { FullscreenControl, Map, NavigationControl, ScaleControl } from 'maplibre-gl';
-// @ts-ignore
-import MeasureControl from 'maplibre-gl-measures'
+import MeasuresControl from 'maplibre-gl-measures'
 
 @Component({
   selector: "app-map-layout",
@@ -32,7 +31,7 @@ export class MapLayoutComponent implements AfterViewInit, OnDestroy {
           }
         },
         // glyphs: "https://fonts.openmaptiles.org/{fontstack}/{range}.pbf",
-        glyphs: "glyphs/{fontstack}/{range}.pbf",
+        glyphs: "assets/glyphs/{fontstack}/{range}.pbf",
         layers: [
           {
             id: "osm",
@@ -48,7 +47,7 @@ export class MapLayoutComponent implements AfterViewInit, OnDestroy {
     this.map.addControl(new NavigationControl(), "top-left")
     this.map.addControl(new FullscreenControl(), "top-left");
     this.map.addControl(new ScaleControl(), "bottom-left")
-    this.map.addControl(new MeasureControl(), 'top-left')
+    this.map.addControl(new MeasuresControl(), 'top-left')
   }
 
   ngOnDestroy() {
